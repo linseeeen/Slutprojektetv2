@@ -9,7 +9,7 @@ namespace Slutprojektetv2
         private KeyboardKey downKey;
         private KeyboardKey rightKey;
         private KeyboardKey leftKey;
-        private int speed = 1;
+        private float speed = 0.5f;
         public Player(float x, float y, KeyboardKey upKey, KeyboardKey downKey, KeyboardKey rightKey, KeyboardKey leftKey)
         {
             this.rect.height = 50;
@@ -25,6 +25,7 @@ namespace Slutprojektetv2
         }
         protected override void Update()
         {
+            
             if (Raylib.IsKeyDown(upKey))
             {
                 this.rect.y -= speed;
@@ -41,7 +42,27 @@ namespace Slutprojektetv2
             {
                 this.rect.x += speed;
             }
-            
+            foreach (GameObject g in gameObjects)
+            {
+                if (g.GetType() == typeof(WateringCan))
+                {
+                    if (Raylib.CheckCollisionRecs(rect, g.rect))
+                    {
+                        wateringCanEqiped = true;
+                        g.rect.x = rect.x;
+                        g.rect.y = rect.y;
+                    }
+                }
+                else if (g.GetType() == typeof(Plant))
+                {
+                    if (Raylib.CheckCollisionRecs(rect, g.rect) && wateringCanEqiped == true)
+                    {
+                        g.healtyPlant = true;
+                        System.Console.WriteLine("Planta");
+                        
+                    }
+                }
+            }
         }
     }
 }
