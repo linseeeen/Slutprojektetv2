@@ -6,7 +6,7 @@ namespace Slutprojektetv2
 {
     public class WateringCan : GameObject
     {
-        public int water = 3;
+        //skapar rekltangeln för vattenkannan samt lägger till den i listan.
         public WateringCan(){
             rect.height = 30;
             rect.width = 30;
@@ -18,6 +18,7 @@ namespace Slutprojektetv2
         {
             
         }
+        //Bestämmer färgen för rektangeln.
         protected override void Draw()
         {
             Raylib.DrawRectangleRec(rect, Color.BLUE);
