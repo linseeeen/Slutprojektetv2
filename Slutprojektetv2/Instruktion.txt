@@ -1,0 +1,13 @@
+My WonderFull Farm
+
+Vattenkanna = blå rektangel
+Spelare = röd rektangel
+Små rektanglar = plantor
+
+Spelet går ut på att du ska ta hand om din gård, 
+du ska vattna skörda och sälja plantor.
+När en planta blir brun behöver den vattnas, 
+hämta då vattenkannan för att vattna, du
+behöver hålla i vattenkannan för att det ska fungera.
+
+Släpp I för att återgå!

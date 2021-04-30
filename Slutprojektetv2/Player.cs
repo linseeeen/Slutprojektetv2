@@ -10,6 +10,8 @@ namespace Slutprojektetv2
         private KeyboardKey rightKey;
         private KeyboardKey leftKey;
         private float speed = 0.5f;
+        //Håller reda på om spelaren håller i vattenkanna eller ej
+        protected bool wateringCanEqiped = false;
         public Player(float x, float y, KeyboardKey upKey, KeyboardKey downKey, KeyboardKey rightKey, KeyboardKey leftKey)
         {
             this.rect.height = 50;
@@ -42,6 +44,9 @@ namespace Slutprojektetv2
             {
                 this.rect.x += speed;
             }
+        }
+        
+        protected override void Collision(){
             foreach (GameObject g in gameObjects)
             {
                 if (g.GetType() == typeof(WateringCan))
@@ -57,9 +62,11 @@ namespace Slutprojektetv2
                 {
                     if (Raylib.CheckCollisionRecs(rect, g.rect) && wateringCanEqiped == true)
                     {
-                        g.healtyPlant = true;
-                        System.Console.WriteLine("Planta");
-                        
+                        Plant.HealthyPlant = true;
+                    }
+                    else if (Raylib.CheckCollisionRecs(rect, g.rect))
+                    {
+                        Raylib.DrawText("Du måste plocka upp vattenkannan för att kunna vattna!", 100, 50, 20, Color.BLACK);
                     }
                 }
             }

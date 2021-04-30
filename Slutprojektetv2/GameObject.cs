@@ -7,20 +7,16 @@ namespace Slutprojektetv2
     public class GameObject
     {
         public Rectangle rect = new Rectangle();
-        //Håller reda på om spelaren håller i vattenkanna eller ej
-        public bool wateringCanEqiped = false;
-        //Håller reda på huruvida en planta behöver vattnas eller ej
-        public bool healtyPlant = false;
 
         //Lista med alla objekt i spelet
-        public static List<GameObject> gameObjects = new List<GameObject>();
+        protected static List<GameObject> gameObjects = new List<GameObject>();
 
         public GameObject()
         {
             gameObjects.Add(this);
         }
         //Kollar huruvida ett objekt i min lista är utanför själva spelfönstret
-        public void Wall()
+        private void Wall()
         {
             if (this.rect.x > 750)
             {
@@ -42,16 +38,21 @@ namespace Slutprojektetv2
         protected virtual void Update(){
             
         }
+        protected virtual void Collision(){
+            
+        }
         public static void UpdateAll()
         {
             foreach (GameObject g in gameObjects)
             {
                 g.Update();
                 g.Wall();
+                g.Collision();
             }
         }
         protected virtual void Draw(){
             Raylib.DrawRectangleRec(rect, Color.RED);
+            Raylib.DrawText("Håll in I för instruktioner", 5, 5, 20, Color.BLACK);
         }
         public static void DrawAll()
         {
