@@ -82,7 +82,7 @@ namespace Slutprojektetv2
         protected override void Collision(){
             foreach (GameObject g in gameObjects)
             {
-                if (g.GetType() == typeof(WateringCan))
+                if (g is WateringCan)
                 {
                     if (Raylib.CheckCollisionRecs(rect, g.rect))
                     {
@@ -91,7 +91,7 @@ namespace Slutprojektetv2
                         g.rect.y = rect.y;
                     }
                 }
-                else if (g.GetType() == typeof(Plant))
+                else if (g is Plant)
                 {
                     if (Raylib.CheckCollisionRecs(rect, g.rect) && wateringCanEqiped == true)
                     {

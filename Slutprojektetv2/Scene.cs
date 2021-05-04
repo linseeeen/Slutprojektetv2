@@ -28,7 +28,7 @@ namespace Slutprojektetv2
         protected void StartScene(){
             foreach (Scene s in scenes)
             {
-                if (s.GetType() == typeof(Start))
+                if (s is Start)
                 {
                     s.DrawScene();
                     
@@ -39,7 +39,7 @@ namespace Slutprojektetv2
         protected void InstructionScene(){
             foreach (Scene s in scenes)
             {
-                if (s.GetType() == typeof(Instruktion))
+                if (s is Instruktion)
                 {
                     
                         s.DrawScene();
@@ -79,14 +79,12 @@ namespace Slutprojektetv2
         /*Denna metodär den metod som ritar ut allt till fönstret, beroende
         på om användaer trycker in I för instruktioner eller ej så ritar den ut
         olika grejer.
-        
-        En uppdatering jag hade velat göra är så att spelet pausar
-        när man är i intruktionerna.
         */
         public static void SceneToScreen(){
-            
-            GameObject.UpdateAll();
-            
+            if (!Raylib.IsKeyDown(KeyboardKey.KEY_I))
+            {
+                GameObject.UpdateAll();
+            }
             Raylib.BeginDrawing();
             
             Raylib.ClearBackground(Color.GREEN);
