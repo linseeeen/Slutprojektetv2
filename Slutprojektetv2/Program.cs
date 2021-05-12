@@ -14,6 +14,8 @@ namespace Slutprojektetv2
             Player p1 = new Player(20, 20, KeyboardKey.KEY_W, KeyboardKey.KEY_S, KeyboardKey.KEY_D, KeyboardKey.KEY_A);
             WateringCan water = new WateringCan();
             Plant plant = new Plant();
+            Strawberry strawberry = new Strawberry();
+            Orange orange = new Orange();
             Start start = new Start();
             Instruktion instruktion = new Instruktion();
 

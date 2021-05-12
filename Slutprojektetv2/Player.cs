@@ -95,7 +95,7 @@ namespace Slutprojektetv2
                 {
                     if (Raylib.CheckCollisionRecs(rect, g.rect) && wateringCanEqiped == true)
                     {
-                        Plant.HealthyPlant = true;
+                        g.SetHealthyPlant(true);
                     }
                     else if (Raylib.CheckCollisionRecs(rect, g.rect))
                     {

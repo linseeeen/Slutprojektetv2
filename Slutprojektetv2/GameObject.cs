@@ -8,6 +8,16 @@ namespace Slutprojektetv2
     {
         //gemensam rektangel.
         public Rectangle rect = new Rectangle();
+        //Variabel som kollar om plantan är vattnad eller ej
+        private bool healtyPlant = false;
+        //Låter än andra boolen
+        public void SetHealthyPlant (bool value){
+            healtyPlant = value;
+        }
+        //Låter än läsa boolen
+        public bool HealthyPlant(){
+            return healtyPlant;
+        }
 
         //Lista med alla objekt i spelet
         protected static List<GameObject> gameObjects = new List<GameObject>();
